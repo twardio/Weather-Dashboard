@@ -1,37 +1,26 @@
-.jumbotron {
-    font-family: 'Open Sans', sans-serif;
-    background-color: rgba(5, 92, 121, 0.589);
-    text-align: center;
+
+
+/* API Response section */
+
+
+
+
+  /* weather card */
+  .weather-card {
+    font-family: 'open sans', sans-serif;
+    border: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+    margin: 1rem;
+    padding: 1rem;
+    width: 20rem;
     color: white;
-    padding: 20px 25px;
+    background-color: rgba(5, 92, 121, 0.589);
   }
 
-#form-heading {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.5em;
-    font-weight: 300;
-    margin-bottom: 20px;
-  }
-
-#search-input {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.em;
-    font-weight: 300;
-    margin-bottom: 20px;
-  }
-
-#search-button {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 1.em;
-    font-weight: 300;
-    margin-bottom: 20px;
-  }
-
-/* search for city container*/
   .container-fluid {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 10rem;
+    display: inline-block;
   }
+
+  #search-card {
+   display: inline-flex;
