@@ -1,26 +1,11 @@
+.sidebar {
+  position: fixed;
+  height: 100%;
+  background-color: #fff;
+  padding: 20px;
+}
 
-
-/* API Response section */
-
-
-
-
-  /* weather card */
-  .weather-card {
-    font-family: 'open sans', sans-serif;
-    border: 1rem;
-    border-radius: 1rem;
-    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
-    margin: 1rem;
-    padding: 1rem;
-    width: 20rem;
-    color: white;
-    background-color: rgba(5, 92, 121, 0.589);
-  }
-
-  .container-fluid {
-    display: inline-block;
-  }
-
-  #search-card {
-   display: inline-flex;
+.jumbotron {
+  background-color:blue !important;
+  color: white !important; 
+}

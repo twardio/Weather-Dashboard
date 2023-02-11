@@ -5,86 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="styles/reset.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
     <title>Weather Dashboard</title>
   </head>
-  <!-- Jumbotron-->
   <body>
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h1 class="display-4">Weather Dashboard</h1>
-        <p class="lead">Search for a weather forecast</p>
-      </div>
-    </div>
 
-    <!-- Search -->
+    <div class="jumbotron text-center">
+      <h1 class="display-4">Weather Dashboard</h1>
+    </div>
+  
     <div class="container-fluid">
       <div class="row">
-        <aside class="col-lg-3 pb-3">
-          <h2 id="form-heading" class="mt-1 h3 form-label">
-            Search for a City:
-          </h2>
-          <form id="search-form" class="form">
-            <div class="form-inline form-group">
-              <div class="input-group">
-                <input
-                  class="form-input weather-search"
-                  type="text"
-                  id="search-input"
-                  placeholder="London"
-                  aria-labelledby="form-heading"
-                  aria-controls="today forecast"
-                />
-                <div class="input-group-append">
-                  <button
-                    type="submit"
-                    class="btn search-button"
-                    id="search-button"
-                    aria-label="submit search"
-                  >
-                    Search
-                  </button>
-                  <hr class="hr weather-hr" />
-                </div>
-              </div>
+        <div class="col-3 sidebar">
+          <div class="form-group">
+            <label for="citySearch">Search for a City:</label>
+            <input type="text" class="form-control" id="citySearch" placeholder="Enter City Name">
+          </div>
+        </div>
+        <div class="col-9">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title cityInfo">City</h5>
+              <p>Name: </p>
+              <p>Date: </p>
+              <p>Temp: </p>
+              <p>Wind: </p>
+              <p>Humidity: </p>
             </div>
-          </form>
-          <div class="list-group" id="history"></div>
-        </aside>
-      </div>
-    </div>
-
-    <!-- API Response -->
-    <div class="api-card" style="width: 18rem;">
-      <div class="card-header">
-        Featured
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">An item</li>
-        <li class="list-group-item">A second item</li>
-        <li class="list-group-item">A third item</li>
-      </ul>
-    </div>
-
-
-    <!-- Today's Weather Cards - do css adding of cards with jquery to this-->
-      <div> 
-        <div class="weather-card" style="width: 18rem;">
-          <div class="card-body">
-            <p class="card-date">date here</p>
-            <p class="card-icon">icon here</p>
-            <p class="card-temp">Temp:</p>
-            <p class="card-wind">Wind: </p>
-            <p class="card-humidity">Humidity: </p>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">5-Day Forecast:</h5>
+            </div>
           </div>
         </div>
       </div>
-
-
-
-
+    </div>
 
     <!-- Moment.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
