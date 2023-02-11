@@ -22,7 +22,10 @@
           <div class="form-group">
             <label for="citySearch">Search for a City:</label>
             <input type="text" class="form-control" id="citySearch" placeholder="Enter City Name">
+            <button id="searchButton" class="btn btn-primary mt-3">Search</button>
+            <button id="clearButton" class="btn btn-danger mt-3">Clear</button>
           </div>
+          <div id="cityList" class="text-center mt-3"></div>
         </div>
         <div class="col-9">
           <div class="card">
@@ -38,7 +41,14 @@
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">5-Day Forecast:</h5>
+              <!-- Forcast card start -->
+              <div class="card col-sm-2 forecastCard">
+                <div class="card-body">
+                  <h6 class="card-title">Forecast card</h6>
+                </div>
+              </div>
             </div>
+            <!-- Forecast card end  -->
           </div>
         </div>
       </div>
