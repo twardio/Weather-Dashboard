@@ -4,6 +4,8 @@ const citySearch = document.getElementById("citySearch");
 const searchButton = document.getElementById("searchButton");
 const cityList = document.getElementById("cityList");
 const clearButton = document.getElementById("clearButton");
+const apiKey = "11124cc5636decd0a931bb5d68ca2f09";
+const apiUrl = "https://api.openweathermap.org/data/2.5/weather";
 
 searchButton.addEventListener("click", function() {
   const city = citySearch.value;
@@ -35,3 +37,5 @@ window.addEventListener("load", function() {
     cityList.appendChild(button);
   });
 });
+
+
