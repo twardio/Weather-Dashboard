@@ -10,3 +10,7 @@
   color: white !important; 
 }
 
+.city-button {
+  margin: 5px;
+  padding: 0 10px;
+}
