@@ -1,34 +1,20 @@
 
-// structure of javascript applications:
-// global variables at the top
-// declared functions and function expressions in the middle
-// event listeners at the bottom
-
-// citySearch event listener and innerHTML
-
 const citySearch = document.getElementById("citySearch");
 const searchButton = document.getElementById("searchButton");
 const cityList = document.getElementById("cityList");
 const clearButton = document.getElementById("clearButton");
 const apiKey = "11124cc5636decd0a931bb5d68ca2f09";
 const apiUrl = "https://api.openweathermap.org/data/2.5/forecast";
-const forecastClasses = document.getElementsByClassName("forecastCard")
-const currentDate = moment().format("MM/DD/YYYY")
-// function expression
-// const getForecast = (cityName) => {
-//   const queryUrl = `${apiUrl}?q=${cityName}&appid=${apiKey}&units=metric`;
-//   $.ajax({
-//     url: queryUrl,
-//     method: "GET",
-//   }).then(function (response) {
-//     console.log(response);
-//     document.querySelector('.cityName').textContent = `Name: ${response.city.name}`
-//   });
-// }
+const forecastClasses = document.getElementsByClassName("forecastCard");
+const currentDate = moment().format("MM/DD/YYYY");
+
 
 // declared function
 function getForecast(cityName) {
   const queryUrl = `${apiUrl}?q=${cityName}&appid=${apiKey}&units=metric`;
+
+  // Clear previous forecast cards
+  $("#forecast").empty();
   $.ajax({
     url: queryUrl,
     method: "GET",
@@ -46,21 +32,26 @@ function getForecast(cityName) {
         </div>`;
       // add forecastCard to the HTML
       $("#forecast").append(forecastCard);
-    
     }
-    document.querySelector('.cityName').textContent = `Name: ${response.city.name}`
-    document.querySelector('.date').textContent = `Date: ${currentDate}`
-    document.querySelector('.temp').textContent = `Temp: ${response.list[0].main.temp} degrees`
-    document.querySelector('.wind').textContent = `Wind: ${response.list[0].wind.speed}mph`
-    document.querySelector('.humidity').textContent = `Humidity: ${response.list[0].main.humidity}rh`
-    
+    document.querySelector(
+      ".cityName"
+    ).textContent = `Name: ${response.city.name}`;
+    document.querySelector(".date").textContent = `Date: ${currentDate}`;
+    document.querySelector(
+      ".temp"
+    ).textContent = `Temp: ${response.list[0].main.temp} degrees`;
+    document.querySelector(
+      ".wind"
+    ).textContent = `Wind: ${response.list[0].wind.speed}mph`;
+    document.querySelector(
+      ".humidity"
+    ).textContent = `Humidity: ${response.list[0].main.humidity}rh`;
   });
 }
 
-
 searchButton.addEventListener("click", function () {
   const city = citySearch.value;
-  // const queryUrl = `${apiUrl}?q=${city}&appid=${apiKey}&units=metric`;
+ 
 
   const button = document.createElement("button");
   button.innerHTML = city;
@@ -71,15 +62,8 @@ searchButton.addEventListener("click", function () {
   let cities = JSON.parse(localStorage.getItem("cities")) || [];
   cities.push(city);
   localStorage.setItem("cities", JSON.stringify(cities));
-  //ajax call to get the weather data
-  // $.ajax({
-  //   url: queryUrl,
-  //   method: "GET",
-  // }).then(function (response) {
-  //   console.log(response);
-  //   document.querySelector('.cityName').textContent = `Name: ${response.city.name}`
-  // });
-getForecast(city)
+
+  getForecast(city);
 });
 
 clearButton.addEventListener("click", function () {
