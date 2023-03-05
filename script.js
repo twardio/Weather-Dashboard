@@ -1,4 +1,3 @@
-
 const citySearch = document.getElementById("citySearch");
 const searchButton = document.getElementById("searchButton");
 const cityList = document.getElementById("cityList");
@@ -9,7 +8,7 @@ const forecastClasses = document.getElementsByClassName("forecastCard");
 const currentDate = moment().format("MM/DD/YYYY");
 
 
-// declared function
+// api prepend, api call and append to html
 function getForecast(cityName) {
   const queryUrl = `${apiUrl}?q=${cityName}&appid=${apiKey}&units=metric`;
 
@@ -37,15 +36,9 @@ function getForecast(cityName) {
       ".cityName"
     ).textContent = `Name: ${response.city.name}`;
     document.querySelector(".date").textContent = `Date: ${currentDate}`;
-    document.querySelector(
-      ".temp"
-    ).textContent = `Temp: ${response.list[0].main.temp} degrees`;
-    document.querySelector(
-      ".wind"
-    ).textContent = `Wind: ${response.list[0].wind.speed}mph`;
-    document.querySelector(
-      ".humidity"
-    ).textContent = `Humidity: ${response.list[0].main.humidity}rh`;
+    document.querySelector(".temp").textContent = `Temp: ${response.list[0].main.temp} degrees`;
+    document.querySelector(".wind").textContent = `Wind: ${response.list[0].wind.speed}mph`;
+    document.querySelector(".humidity").textContent = `Humidity: ${response.list[0].main.humidity}rh`;
   });
 }
 
@@ -71,6 +64,14 @@ clearButton.addEventListener("click", function () {
     cityList.removeChild(cityList.firstChild);
   }
   localStorage.removeItem("cities");
+});
+
+//event listener for city buttons
+cityList.addEventListener("click", function(event) {
+  if (event.target && event.target.matches("button.city-button")) {
+    const city = event.target.textContent;
+    getForecast(city);
+  }
 });
 
 // Load saved cities from local storage on page load
